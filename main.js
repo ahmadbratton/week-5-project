@@ -54,11 +54,7 @@ function reset() {
 }
 
 app.get("/", function (req , res) {
-  console.log(filter);
-  console.log(all_letter);
-  console.log(letters);
-  console.log(underscore);
-  console.log(double_error);
+
   res.render("index", {words: underscore, correct: all_letter, right: correct_letter , guesses: guesses });
 
 });
@@ -97,19 +93,22 @@ if (req.body.letters) {
   all_letter.push(req.body.letters)
 }
 
-  if (matching === false){
-    guesses = guesses - 1;
-  }
 
-  req.checkBody("letters", "come'on one letter my G").notEmpty().isLength({max:1});
+
+  req.checkBody("letters", "come'on you can only have one letter my G").isLength({max:1});
+  req.checkBody("letters", "you need at least one letter and no numbers").isAlpha();
   let error = req.validationErrors();
 
 if (error) {
   error.forEach(function (errors) {
     error_msg.push(errors.msg);
+    matching = true;
   });
   res.render("index", {words: underscore, correct: all_letter, error: error_msg} );
   error_msg = [];
+}
+if (matching === false){
+  guesses = guesses - 1;
 }
 
 if (guesses === 0) {
