@@ -67,7 +67,7 @@ app.get("/", function (req , res) {
 
 
 app.get("/loser", function (req , res) {
-res.render("loser");
+res.render("loser", {full_word: game_words});
 });
 
 app.get("/winner", function (req , res) {
