@@ -1,0 +1,14 @@
+.all_words{
+  display: flex;
+}
+.all_words div{
+  width:40px;
+  flex-direction: column;
+}
+
+.under{
+  margin-top: -30px;
+}
+.underline{
+  margin-top: 50px;
+}

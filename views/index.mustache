@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <title></title>
+  </head>
+  <body>
+  <div class="errors">
+    {{#error}}
+    <p>{{.}}</p>
+    {{/error}}
+    {{#double}}
+    <p>{{.}}</p>
+    {{/double}}
+  </div>
+    <div class="all_words">
+      {{#words}}
+      <div class="letters">
+        <p class="letter">{{.}}</p>
+      </div>
+      {{/words}}
+   </div>
+    <form class="" action="/" method="post">
+      <input type="text" name="letters" value="">
+      <button type="submit" name="">guess</button>
+    </form>
+    <div class="letters_guessed">
+    <div class="corect">
+      <h1>chosen Letters</h1>
+      {{#correct}}
+      <div class="right_letter">
+          <li>{{.}}</li>
+      </div>
+      {{/correct}}
+    </div>
+    {{#guesses}}
+    <p>you have {{.}} guesses left</p>
+    {{/guesses}}
+  </div>
+
+  </body>
+</html>
