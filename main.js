@@ -82,8 +82,7 @@ app.post("/", function (req, res) {
 
   for (var i = 0; i < all_letter.length; i++) {
   if ( all_letter[i] === req.body.letters ) {
-    double_error.push(double);
-    res.render("index", {words: underscore, correct: all_letter, right: correct_letter , double: double_error })
+    res.render("index", {words: underscore, correct: all_letter, right: correct_letter , double: double });
     match = true;
   }
 
