@@ -82,8 +82,8 @@ app.post("/", function (req, res) {
 
   for (var i = 0; i < all_letter.length; i++) {
   if ( all_letter[i] === req.body.letters ) {
-    res.render("index", {words: underscore, correct: all_letter, right: correct_letter , double: double });
-    match = true;
+    res.render("index", {words: underscore, correct: all_letter, right: correct_letter , double: double, guesses: guesses });
+    matching = true;
   }
 
 }
@@ -110,7 +110,7 @@ if (matching === false){
   guesses = guesses - 1;
 }
 
-if (guesses === 0) {
+if (guesses < 1) {
  res.redirect("/loser");
 }
 else if (underscore.toString() === letters.toString()) {

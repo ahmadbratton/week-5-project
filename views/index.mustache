@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <title></title>
   </head>
   <body>
@@ -21,23 +22,33 @@
       </div>
       {{/words}}
    </div>
+   <div class= "count" >
+   {{#guesses}}
+   <p>you have {{.}} guesses left</p>
+   {{/guesses}}
+ </div>
+   <div class= "form" >
     <form class="" action="/" method="post">
+      <div class= "input" >
       <input type="text" name="letters" value="">
       <button type="submit" name="">guess</button>
+    </div>
     </form>
+  </div>
     <div class="letters_guessed">
     <div class="corect">
       <h1>chosen Letters</h1>
-      {{#correct}}
-      <div class="right_letter">
-          <li>{{.}}</li>
-      </div>
-      {{/correct}}
-    </div>
-    {{#guesses}}
-    <p>you have {{.}} guesses left</p>
-    {{/guesses}}
-  </div>
 
+    </div>
+  </div>
+  <div class="right_letter">
+  {{#correct}}
+    <ul>
+      <div class="list_item">
+        <li>{{.}}</li>
+      </div>
+    </ul>
+  {{/correct}}
+</div>
   </body>
 </html>
